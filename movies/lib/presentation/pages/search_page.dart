@@ -2,7 +2,7 @@ import 'package:core/core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../bloc/search/search_bloc.dart';
+import '../bloc/movie_search/search_bloc.dart';
 import '../widgets/movie_card_list.dart';
 
 class SearchPage extends StatelessWidget {
@@ -23,7 +23,9 @@ class SearchPage extends StatelessWidget {
           children: [
             TextField(
               onChanged: (query) {
-                context.read<SearchBloc>().add(OnQueryChanged(query));
+                context
+                    .read<MovieSearchBloc>()
+                    .add(MovieSearchQueryEvent(query));
               },
               decoration: const InputDecoration(
                 hintText: 'Search title',
@@ -37,13 +39,13 @@ class SearchPage extends StatelessWidget {
               'Search Result',
               style: kHeading6,
             ),
-            BlocBuilder<SearchBloc, SearchState>(
+            BlocBuilder<MovieSearchBloc, MovieSearchState>(
               builder: (context, state) {
-                if (state is SearchLoading) {
+                if (state is MovieSearchLoading) {
                   return const Center(
                     child: CircularProgressIndicator(),
                   );
-                } else if (state is SearchHasData) {
+                } else if (state is MovieSearchLoaded) {
                   final result = state.result;
                   return Expanded(
                     child: ListView.builder(
@@ -55,7 +57,7 @@ class SearchPage extends StatelessWidget {
                       itemCount: result.length,
                     ),
                   );
-                } else if (state is SearchError) {
+                } else if (state is MovieSearchError) {
                   return Expanded(
                     child: Center(
                       child: Text(state.message),

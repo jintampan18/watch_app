@@ -5,54 +5,83 @@ import 'package:core/core.dart';
 import 'package:movies/movies.dart';
 import 'package:tv_series/tv_series.dart';
 
-import 'package:movies/presentation/bloc/search/search_bloc.dart';
-
 final locator = GetIt.instance;
 
 void init() {
-  // bloc
+  // bloc movie
+
   locator.registerFactory(
-    () => SearchBloc(
-      locator(),
-    ),
-  );
-  // provider movie
-  locator.registerFactory(
-    () => MovieListNotifier(
-      getNowPlayingMovies: locator(),
-      getPopularMovies: locator(),
-      getTopRatedMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => MovieDetailNotifier(
-      getMovieDetail: locator(),
-      getMovieRecommendations: locator(),
-      getWatchListStatus: locator(),
-      saveWatchlist: locator(),
-      removeWatchlist: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => MovieSearchNotifier(
-      searchMovies: locator(),
-    ),
-  );
-  locator.registerFactory(
-    () => PopularMoviesNotifier(
+    () => MovieNowPlayingBloc(
       locator(),
     ),
   );
   locator.registerFactory(
-    () => TopRatedMoviesNotifier(
-      getTopRatedMovies: locator(),
+    () => MoviePopularBloc(
+      locator(),
     ),
   );
   locator.registerFactory(
-    () => WatchlistMovieNotifier(
-      getWatchlistMovies: locator(),
+    () => MovieTopRatedBloc(
+      locator(),
     ),
   );
+  locator.registerFactory(
+    () => MovieSearchBloc(
+      locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => MovieDetailBloc(
+      locator(),
+      locator(),
+      locator(),
+    ),
+  );
+  locator.registerFactory(
+    () => MovieWatchlistBloc(
+      locator(),
+      locator(),
+      locator(),
+    ),
+  );
+
+  // // provider movie
+  // locator.registerFactory(
+  //   () => MovieListNotifier(
+  //     getNowPlayingMovies: locator(),
+  //     getPopularMovies: locator(),
+  //     getTopRatedMovies: locator(),
+  //   ),
+  // );
+  // locator.registerFactory(
+  //   () => MovieDetailNotifier(
+  //     getMovieDetail: locator(),
+  //     getMovieRecommendations: locator(),
+  //     getWatchListStatus: locator(),
+  //     saveWatchlist: locator(),
+  //     removeWatchlist: locator(),
+  //   ),
+  // );
+  // locator.registerFactory(
+  //   () => MovieSearchNotifier(
+  //     searchMovies: locator(),
+  //   ),
+  // );
+  // locator.registerFactory(
+  //   () => PopularMoviesNotifier(
+  //     locator(),
+  //   ),
+  // );
+  // locator.registerFactory(
+  //   () => TopRatedMoviesNotifier(
+  //     getTopRatedMovies: locator(),
+  //   ),
+  // );
+  // locator.registerFactory(
+  //   () => WatchlistMovieNotifier(
+  //     getWatchlistMovies: locator(),
+  //   ),
+  // );
 
   // provider tv-series
   locator.registerFactory(

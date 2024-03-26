@@ -1,16 +1,16 @@
 part of 'search_bloc.dart';
 
-sealed class SearchEvent extends Equatable {
-  const SearchEvent();
+sealed class MovieSearchEvent extends Equatable {
+  const MovieSearchEvent();
 
   @override
   List<Object> get props => [];
 }
 
-class OnQueryChanged extends SearchEvent {
+class MovieSearchQueryEvent extends MovieSearchEvent {
   final String query;
 
-  const OnQueryChanged(
+  const MovieSearchQueryEvent(
     this.query,
   );
 

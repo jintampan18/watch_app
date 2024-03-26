@@ -1,5 +1,10 @@
 library movies;
 
+// entities
+export 'domain/entities/genre.dart';
+export 'domain/entities/movie.dart';
+export 'domain/entities/movie_detail.dart';
+
 // datasources
 export 'data/datasources/movie_remote_data_source.dart';
 export 'data/datasources/movie_local_data_source.dart';
@@ -27,6 +32,14 @@ export 'presentation/provider/movie_search_notifier.dart';
 export 'presentation/provider/popular_movies_notifier.dart';
 export 'presentation/provider/top_rated_movies_notifier.dart';
 export 'presentation/provider/watchlist_movie_notifier.dart';
+
+// bloc
+export 'presentation/bloc/movie_detail/movie_detail_bloc.dart';
+export 'presentation/bloc/movie_now_playing/movie_now_playing_bloc.dart';
+export 'presentation/bloc/movie_popular/movie_popular_bloc.dart';
+export 'presentation/bloc/movie_search/search_bloc.dart';
+export 'presentation/bloc/movie_top_rated/movie_top_rated_bloc.dart';
+export 'presentation/bloc/movie_watchlist/movie_watchlist_bloc.dart';
 
 // pages
 export 'presentation/pages/home_movie_page.dart';
