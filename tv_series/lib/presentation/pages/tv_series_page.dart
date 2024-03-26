@@ -6,12 +6,12 @@ import 'package:movies/presentation/pages/watchlist_movies_page.dart';
 import 'package:provider/provider.dart';
 import 'package:about/about.dart';
 import 'package:tv_series/presentation/pages/search_tv_series_page.dart';
-import '../provider/tv_series_list_notifier.dart';
 import 'popular_tv_series_page.dart';
 import 'top_rated_tv_series_page.dart';
 import 'tv_series_detail_page.dart';
 import 'watchlist_tv_series_page.dart';
 
+import '../provider/tv_series_list_notifier.dart';
 import '../../domain/entities/tv_series.dart';
 
 class TvSeriesPage extends StatefulWidget {

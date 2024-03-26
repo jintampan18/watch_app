@@ -68,7 +68,7 @@ void main() {
   test('should return error when data is unsuccessful', () async {
     // arrange
     when(mockGetPopularTvSeries.execute())
-        .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+        .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
     // act
     await notifier.fetchPopularTvSeries();
     // assert

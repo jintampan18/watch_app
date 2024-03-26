@@ -67,7 +67,7 @@ void main() {
   });
 
   group('Get TV Series Detail By Id', () {
-    final tId = 111;
+    const tId = 111;
 
     test('should return TV Series Detail Table when data is found', () async {
       // arrange

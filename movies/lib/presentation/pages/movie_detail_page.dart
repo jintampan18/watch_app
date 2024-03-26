@@ -16,7 +16,7 @@ class MovieDetailPage extends StatefulWidget {
   const MovieDetailPage({super.key, required this.id});
 
   @override
-  _MovieDetailPageState createState() => _MovieDetailPageState();
+  State<MovieDetailPage> createState() => _MovieDetailPageState();
 }
 
 class _MovieDetailPageState extends State<MovieDetailPage> {
@@ -198,7 +198,7 @@ class DetailContent extends StatelessWidget {
                                   return Text(data.message);
                                 } else if (data.recommendationState ==
                                     RequestState.Loaded) {
-                                  return Container(
+                                  return SizedBox(
                                     height: 150,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,

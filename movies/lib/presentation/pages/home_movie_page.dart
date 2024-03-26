@@ -3,8 +3,6 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:core/core.dart';
 import 'package:tv_series/presentation/pages/tv_series_page.dart';
 import 'package:tv_series/presentation/pages/watchlist_tv_series_page.dart';
-import '../../domain/entities/movie.dart';
-import '../provider/movie_list_notifier.dart';
 import 'movie_detail_page.dart';
 import 'popular_movies_page.dart';
 import 'search_page.dart';
@@ -13,13 +11,16 @@ import 'watchlist_movies_page.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../domain/entities/movie.dart';
+import '../provider/movie_list_notifier.dart';
+
 class HomeMoviePage extends StatefulWidget {
   static const routeName = '/home';
 
   const HomeMoviePage({super.key});
 
   @override
-  _HomeMoviePageState createState() => _HomeMoviePageState();
+  State<HomeMoviePage> createState() => _HomeMoviePageState();
 }
 
 class _HomeMoviePageState extends State<HomeMoviePage> {

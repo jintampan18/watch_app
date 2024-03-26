@@ -64,7 +64,7 @@ void main() {
 
   void arrangeUsecase() {
     when(mockGetMovieDetail.execute(tId))
-        .thenAnswer((_) async => Right(testMovieDetail));
+        .thenAnswer((_) async => const Right(testMovieDetail));
     when(mockGetMovieRecommendations.execute(tId))
         .thenAnswer((_) async => Right(tMovies));
   }
@@ -138,9 +138,9 @@ void main() {
     test('should update error message when request in successful', () async {
       // arrange
       when(mockGetMovieDetail.execute(tId))
-          .thenAnswer((_) async => Right(testMovieDetail));
+          .thenAnswer((_) async => const Right(testMovieDetail));
       when(mockGetMovieRecommendations.execute(tId))
-          .thenAnswer((_) async => Left(ServerFailure('Failed')));
+          .thenAnswer((_) async => const Left(ServerFailure('Failed')));
       // act
       await provider.fetchMovieDetail(tId);
       // assert
@@ -201,7 +201,7 @@ void main() {
     test('should update watchlist message when add watchlist failed', () async {
       // arrange
       when(mockSaveWatchlist.execute(testMovieDetail))
-          .thenAnswer((_) async => Left(DatabaseFailure('Failed')));
+          .thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
       when(mockGetWatchlistStatus.execute(testMovieDetail.id))
           .thenAnswer((_) async => false);
       // act
@@ -216,7 +216,7 @@ void main() {
     test('should return error when data is unsuccessful', () async {
       // arrange
       when(mockGetMovieDetail.execute(tId))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       when(mockGetMovieRecommendations.execute(tId))
           .thenAnswer((_) async => Right(tMovies));
       // act

@@ -100,7 +100,7 @@ class MyApp extends StatelessWidget {
                 settings: settings,
               );
             case SearchPage.routeName:
-              return CupertinoPageRoute(builder: (_) => SearchPage());
+              return CupertinoPageRoute(builder: (_) => const SearchPage());
             case WatchlistMoviesPage.routeName:
               return MaterialPageRoute(
                   builder: (_) => const WatchlistMoviesPage());

@@ -65,7 +65,7 @@ void main() {
 
   void arrangeUsecase() {
     when(mockGetTvSeriesDetail.execute(tId))
-        .thenAnswer((_) async => Right(testTvSeriesDetail));
+        .thenAnswer((_) async => const Right(testTvSeriesDetail));
     when(mockGetTvSeriesRecommendations.execute(tId))
         .thenAnswer((_) async => Right(tTvSeries));
   }
@@ -140,9 +140,9 @@ void main() {
     test('should update error message when request in successful', () async {
       // arrange
       when(mockGetTvSeriesDetail.execute(tId))
-          .thenAnswer((_) async => Right(testTvSeriesDetail));
+          .thenAnswer((_) async => const Right(testTvSeriesDetail));
       when(mockGetTvSeriesRecommendations.execute(tId))
-          .thenAnswer((_) async => Left(ServerFailure('Failed')));
+          .thenAnswer((_) async => const Left(ServerFailure('Failed')));
       // act
       await provider.fetchTvSeriesDetail(tId);
       // assert
@@ -204,7 +204,7 @@ void main() {
     test('should update watchlist message when add watchlist failed', () async {
       // arrange
       when(mockSaveTvSeriesWatchlist.execute(testTvSeriesDetail))
-          .thenAnswer((_) async => Left(DatabaseFailure('Failed')));
+          .thenAnswer((_) async => const Left(DatabaseFailure('Failed')));
       when(mockGetTvSeriesWatchlistStatus.execute(testTvSeriesDetail.id))
           .thenAnswer((_) async => false);
       // act
@@ -219,7 +219,7 @@ void main() {
     test('should return error when data is unsuccessful', () async {
       // arrange
       when(mockGetTvSeriesDetail.execute(tId))
-          .thenAnswer((_) async => Left(ServerFailure('Server Failure')));
+          .thenAnswer((_) async => const Left(ServerFailure('Server Failure')));
       when(mockGetTvSeriesRecommendations.execute(tId))
           .thenAnswer((_) async => Right(tTvSeries));
       // act

@@ -26,7 +26,7 @@ final testMovie = Movie(
 
 final testMovieList = [testMovie];
 
-final testMovieDetail = MovieDetail(
+const testMovieDetail = MovieDetail(
   adult: false,
   backdropPath: 'backdropPath',
   genres: [GenreMovies(id: 1, name: 'Action')],
@@ -62,7 +62,7 @@ final testMovieMap = {
   'title': 'title',
 };
 
-final testTvSeriesDetail = TvSeriesDetail(
+const testTvSeriesDetail = TvSeriesDetail(
   genres: [Genre(id: 1, name: 'Action')],
   id: 66732,
   name: "Stranger Things",
