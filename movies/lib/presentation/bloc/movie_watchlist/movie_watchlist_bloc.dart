@@ -1,9 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/domain/entities/movie_detail.dart';
 import 'package:movies/movies.dart';
-
-import '../../../domain/entities/movie.dart';
 
 part 'movie_watchlist_event.dart';
 part 'movie_watchlist_state.dart';
@@ -19,7 +16,7 @@ class MovieWatchlistBloc
     this.removeWatchlist,
     this.saveWatchlist,
   ) : super(MovieWatchlistInitial()) {
-    on<MovieWathclistGetEvent>((event, emit) async {
+    on<MovieWatchlistGetEvent>((event, emit) async {
       emit(MovieWatchlistLoading());
       final result = await getWatchlistMovies.execute();
       result.fold(

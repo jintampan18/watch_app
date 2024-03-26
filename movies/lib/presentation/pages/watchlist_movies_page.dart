@@ -19,7 +19,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
   @override
   void initState() {
     super.initState();
-    context.read<MovieWatchlistBloc>().add(MovieWathclistGetEvent());
+    context.read<MovieWatchlistBloc>().add(MovieWatchlistGetEvent());
   }
 
   @override
@@ -30,7 +30,7 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
 
   @override
   void didPopNext() {
-    context.read<MovieWatchlistBloc>().add(MovieWathclistGetEvent());
+    context.read<MovieWatchlistBloc>().add(MovieWatchlistGetEvent());
   }
 
   @override

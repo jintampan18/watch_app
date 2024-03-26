@@ -1,8 +1,7 @@
-import 'package:core/core.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:tv_series/tv_series.dart';
 
-import '../provider/popular_tv_series_notifier.dart';
 import '../widgets/tv_series_card_list.dart';
 
 class PopularTvSeriesPage extends StatefulWidget {
@@ -18,9 +17,7 @@ class _PopularTvSeriesPageState extends State<PopularTvSeriesPage> {
   @override
   void initState() {
     super.initState();
-    Future.microtask(() =>
-        Provider.of<PopularTvSeriesNotifier>(context, listen: false)
-            .fetchPopularTvSeries());
+    context.read<TvSeriesPopularBloc>().add(TvSeriesPopularGetEvent());
   }
 
   @override
@@ -31,26 +28,29 @@ class _PopularTvSeriesPageState extends State<PopularTvSeriesPage> {
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
-        child: Consumer<PopularTvSeriesNotifier>(
-          builder: (context, data, child) {
-            if (data.state == RequestState.Loading) {
+        child: BlocBuilder<TvSeriesPopularBloc, TvSeriesPopularState>(
+          builder: (context, state) {
+            if (state is TvSeriesPopularLoading) {
               return const Center(
                 child: CircularProgressIndicator(),
               );
-            } else if (data.state == RequestState.Loaded) {
+            }
+            if (state is TvSeriesPopularLoaded) {
               return ListView.builder(
                 itemBuilder: (context, index) {
-                  final tvSeries = data.tvSeries[index];
-                  return TvSeriesCard(tvSeries);
+                  final tvSerie = state.tvSeries[index];
+                  return TvSeriesCard(tvSerie);
                 },
-                itemCount: data.tvSeries.length,
-              );
-            } else {
-              return Center(
-                key: const Key('error_message'),
-                child: Text(data.message),
+                itemCount: state.tvSeries.length,
               );
             }
+            if (state is TvSeriesPopularError) {
+              return Center(
+                key: const Key('error_message'),
+                child: Text(state.message),
+              );
+            }
+            return const Text('No Data');
           },
         ),
       ),

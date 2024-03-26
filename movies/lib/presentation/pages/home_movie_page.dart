@@ -5,9 +5,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:about/about.dart';
 import 'package:movies/movies.dart';
 import 'package:core/core.dart';
-
-import 'package:tv_series/presentation/pages/tv_series_page.dart';
-import 'package:tv_series/presentation/pages/watchlist_tv_series_page.dart';
+import 'package:tv_series/tv_series.dart';
 
 class HomeMoviePage extends StatefulWidget {
   static const routeName = '/home';
@@ -79,7 +77,7 @@ class _HomeMoviePageState extends State<HomeMoviePage> {
         ),
       ),
       appBar: AppBar(
-        title: const Text('watch_app'),
+        title: const Text('Movies'),
         actions: [
           IconButton(
             onPressed: () {

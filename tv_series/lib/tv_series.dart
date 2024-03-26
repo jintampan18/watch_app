@@ -1,5 +1,10 @@
 library tv_series;
 
+// entities
+export 'domain/entities/genre.dart';
+export 'domain/entities/tv_series.dart';
+export 'domain/entities/tv_series_detail.dart';
+
 // datasources
 export 'data/datasources/tv_series_local_data_source.dart';
 export 'data/datasources/tv_series_remote_data_source.dart';
@@ -20,13 +25,13 @@ export 'domain/usecases/remove_tv_series_watchlist.dart';
 export 'domain/usecases/save_tv_series_watchlist.dart';
 export 'domain/usecases/search_tv_series.dart';
 
-// provider
-export 'presentation/provider/popular_tv_series_notifier.dart';
-export 'presentation/provider/top_rated_tv_series_notifier.dart';
-export 'presentation/provider/tv_series_detail_notifier.dart';
-export 'presentation/provider/tv_series_list_notifier.dart';
-export 'presentation/provider/tv_series_search_notifier.dart';
-export 'presentation/provider/watchlist_tv_series_notifier.dart';
+// bloc
+export 'presentation/bloc/tv_series_airing/tv_series_airing_bloc.dart';
+export 'presentation/bloc/tv_series_detail/tv_series_detail_bloc.dart';
+export 'presentation/bloc/tv_series_popular/tv_series_popular_bloc.dart';
+export 'presentation/bloc/tv_series_search/tv_series_search_bloc.dart';
+export 'presentation/bloc/tv_series_top_rated/tv_series_top_rated_bloc.dart';
+export 'presentation/bloc/tv_series_watchlist/tv_series_watchlist_bloc.dart';
 
 // pages
 export 'presentation/pages/popular_tv_series_page.dart';

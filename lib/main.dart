@@ -1,12 +1,15 @@
-import 'package:core/core.dart';
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:movies/movies.dart';
-import 'package:tv_series/tv_series.dart';
+
 import 'package:watch_app/firebase_options.dart';
 import 'package:watch_app/injection.dart' as di;
+
+import 'package:core/core.dart';
+import 'package:tv_series/tv_series.dart';
+import 'package:movies/movies.dart';
 import 'package:about/about_page.dart';
 
 void main() async {
@@ -43,6 +46,26 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider(
           create: (_) => di.locator<MovieWatchlistBloc>(),
+        ),
+
+        // Bloc Tv-Series
+        BlocProvider(
+          create: (_) => di.locator<TvSeriesAiringBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvSeriesPopularBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvSeriesTopRatedBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvSeriesDetailBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvSeriesSearchBloc>(),
+        ),
+        BlocProvider(
+          create: (_) => di.locator<TvSeriesWatchlistBloc>(),
         ),
       ],
       child: MaterialApp(
