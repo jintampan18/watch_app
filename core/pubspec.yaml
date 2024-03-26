@@ -14,6 +14,7 @@ dependencies:
   sqflite: ^2.3.2
   firebase_crashlytics: ^3.4.19
   equatable: ^2.0.5
+  http: ^1.2.1
 
   about:
     path: ../about

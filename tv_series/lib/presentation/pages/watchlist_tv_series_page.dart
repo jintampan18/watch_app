@@ -49,6 +49,11 @@ class _WatchlistTvSeriesPageState extends State<WatchlistTvSeriesPage>
               );
             }
             if (state is TvSeriesWatchlistLoaded) {
+              if (state.tvSeries.isEmpty) {
+                return const Center(
+                  child: Text('No data available'),
+                );
+              }
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final serie = state.tvSeries[index];

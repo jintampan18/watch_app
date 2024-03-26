@@ -6,7 +6,6 @@ import 'package:mockito/mockito.dart';
 import 'package:movies/data/models/genre_model.dart';
 import 'package:movies/data/models/movie_detail_model.dart';
 import 'package:movies/data/models/movie_model.dart';
-import 'package:movies/domain/entities/movie.dart';
 import 'package:movies/movies.dart';
 
 import '../../dummy_data/dummy_objects.dart';

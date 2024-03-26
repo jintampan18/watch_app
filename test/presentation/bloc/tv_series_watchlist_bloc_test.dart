@@ -4,7 +4,6 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
-import 'package:tv_series/presentation/bloc/tv_series_watchlist/tv_series_watchlist_bloc.dart';
 import 'package:tv_series/tv_series.dart';
 
 import '../../dummy_data/dummy_objects.dart';

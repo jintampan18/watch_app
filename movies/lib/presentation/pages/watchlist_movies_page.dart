@@ -49,6 +49,11 @@ class _WatchlistMoviesPageState extends State<WatchlistMoviesPage>
               );
             }
             if (state is MovieWatchlistLoaded) {
+              if (state.movies.isEmpty) {
+                return const Center(
+                  child: Text('No data available'),
+                );
+              }
               return ListView.builder(
                 itemBuilder: (context, index) {
                   final movie = state.movies[index];

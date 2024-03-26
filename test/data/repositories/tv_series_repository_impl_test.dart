@@ -6,8 +6,6 @@ import 'package:mockito/mockito.dart';
 import 'package:tv_series/data/models/tv_series_detail_model.dart';
 import 'package:tv_series/data/models/tv_series_model.dart';
 import 'package:tv_series/data/models/tv_series_table.dart';
-import 'package:tv_series/domain/entities/tv_series.dart';
-import 'package:tv_series/domain/entities/tv_series_detail.dart';
 import 'package:tv_series/tv_series.dart';
 
 import '../../dummy_data/dummy_objects.dart';

@@ -123,6 +123,7 @@ class MyApp extends StatelessWidget {
               return MaterialPageRoute(
                   builder: (_) => const WatchlistTvSeriesPage());
 
+            // About
             case AboutPage.routeName:
               return MaterialPageRoute(builder: (_) => const AboutPage());
             default:

@@ -1,4 +1,7 @@
+import 'dart:io';
+
 import 'package:http/http.dart' as http;
+import 'package:http/io_client.dart';
 import 'package:get_it/get_it.dart';
 
 import 'package:core/core.dart';
@@ -7,7 +10,7 @@ import 'package:tv_series/tv_series.dart';
 
 final locator = GetIt.instance;
 
-void init() {
+void init() async {
   // Bloc Movie
   locator.registerFactory(
     () => MovieNowPlayingBloc(
@@ -132,5 +135,9 @@ void init() {
   locator.registerLazySingleton<DatabaseHelper>(() => DatabaseHelper());
 
   // external
-  locator.registerLazySingleton(() => http.Client());
+  // locator.registerLazySingleton(() => SSLPinning.client);
+  HttpClient client = HttpClient(context: await globalContext);
+  client.badCertificateCallback = (cert, host, port) => false;
+  IOClient ioClient = IOClient(client);
+  locator.registerLazySingleton<http.Client>(() => ioClient);
 }

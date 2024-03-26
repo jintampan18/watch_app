@@ -47,6 +47,13 @@ class SearchTvSeriesPage extends StatelessWidget {
                   );
                 } else if (state is TvSeriesSearchLoaded) {
                   final result = state.result;
+
+                  if (result.isEmpty) {
+                    return const Center(
+                      child: Text('No data available'),
+                    );
+                  }
+
                   return Expanded(
                     child: ListView.builder(
                       padding: const EdgeInsets.all(8),
