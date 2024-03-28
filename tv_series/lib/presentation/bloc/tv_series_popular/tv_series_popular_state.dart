@@ -1,6 +1,6 @@
 part of 'tv_series_popular_bloc.dart';
 
-sealed class TvSeriesPopularState extends Equatable {
+abstract class TvSeriesPopularState extends Equatable {
   const TvSeriesPopularState();
 
   @override

@@ -1,6 +1,6 @@
 part of 'tv_series_detail_bloc.dart';
 
-sealed class TvSeriesDetailEvent extends Equatable {
+abstract class TvSeriesDetailEvent extends Equatable {
   const TvSeriesDetailEvent();
 
   @override

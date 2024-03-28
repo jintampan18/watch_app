@@ -11,6 +11,7 @@ export 'utils/failure.dart';
 export 'utils/network_info.dart';
 export 'utils/routes.dart';
 export 'utils/utils.dart';
+export 'utils/state_enum.dart';
 
 // db
 export 'db/database_helper.dart';

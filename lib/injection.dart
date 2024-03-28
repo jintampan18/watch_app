@@ -33,11 +33,8 @@ void init() async {
     ),
   );
   locator.registerFactory(
-    () => MovieDetailBloc(
-      locator(),
-      locator(),
-      locator(),
-    ),
+    () =>
+        MovieDetailBloc(locator(), locator(), locator(), locator(), locator()),
   );
   locator.registerFactory(
     () => MovieWatchlistBloc(

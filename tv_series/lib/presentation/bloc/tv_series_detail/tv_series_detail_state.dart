@@ -1,6 +1,6 @@
 part of 'tv_series_detail_bloc.dart';
 
-sealed class TvSeriesDetailState extends Equatable {
+abstract class TvSeriesDetailState extends Equatable {
   const TvSeriesDetailState();
 
   @override
